@@ -6,6 +6,7 @@ import android.accounts.AccountManager;
 import android.accounts.AccountManagerFuture;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -52,7 +53,7 @@ public class MainActivity extends BaseActivity
 
         super.onCreate(savedInstanceState);
 
-        AsyncTask<Void, Void, Boolean> task = new AsyncTask<Void, Void, Boolean>()
+        @SuppressLint("StaticFieldLeak") AsyncTask<Void, Void, Boolean> task = new AsyncTask<Void, Void, Boolean>()
         {
             @Override
             protected Boolean doInBackground(Void... params) {

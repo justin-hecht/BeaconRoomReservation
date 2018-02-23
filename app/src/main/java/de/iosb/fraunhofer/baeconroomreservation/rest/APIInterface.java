@@ -28,45 +28,45 @@ import retrofit2.http.Path;
  */
 interface APIInterface
 {
-    @POST("/mobile/login")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/login")
     Call<LoginResponse> postLogin(@Body LoginRequest request);
 
-    @POST("/mobile/room/{id}")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/room/{id}")
     Call<ReservationResponse> postReservation(@Path("id")String roomId, @Body ReservationRequest request);
 
-    @POST("/mobile/room/quick/{id}")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/room/quick/{id}")
     Call<ReservationResponse> postReservation(@Path("id")String roomId, @Body QuickRoomReservationRequest request);
 
-    @POST("/mobile/nearby")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/nearby")
     Call<List<RoomOverview>> postNerby(@Body NearbyRequest request);
 
-    @GET("/mobile/users")
+    @GET("/reservation-0.0.1-SNAPSHOT/mobile/users")
     Call<List<EntityRepresentation>> getUsers();
 
-    @GET("/mobile/room/favorite/{id}")
+    @GET("/reservation-0.0.1-SNAPSHOT/mobile/room/favorite/{id}")
     Call<ReservationResponse> makeFavorite(@Path("id")String roomId);
 
-    @GET("/mobile/favorites")
+    @GET("/reservation-0.0.1-SNAPSHOT/mobile/favorites")
     Call<List<RoomOverview>> getFavorite();
 
-    @GET("/mobile/favorites/terms")
+    @GET("/reservation-0.0.1-SNAPSHOT/mobile/favorites/terms")
     Call<List<Term>> getFavoritesTerms();
 
-    @GET("/mobile/users/terms")
+    @GET("/reservation-0.0.1-SNAPSHOT/mobile/users/terms")
     Call<List<Term>> getMyTerms();
 
-    @POST("/mobile/favorites/terms/")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/favorites/terms/")
     Call<TermDetails> getSelectedTerm(@Body Term termId);
 
-    @POST("/mobile/users/search")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/users/search")
     Call<List<EntityRepresentation>> postSearchUsers(@Body SearchRequest query);
 
-    @POST("/mobile/rooms/search")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/rooms/search")
     Call<List<EntityRepresentation>> postSearchRooms(@Body SearchRequest query);
 
-    @POST("/mobile/users/one")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/users/one")
     Call<EntityDetailsRepresentation> getUserDetails(@Body SearchRequest query);
 
-    @POST("/mobile/rooms/one")
+    @POST("/reservation-0.0.1-SNAPSHOT/mobile/rooms/one")
     Call<RoomDetailsRepresentation> getRoomDetails(@Body SearchRequest searchRequest);
 }

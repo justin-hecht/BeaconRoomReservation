@@ -79,7 +79,7 @@ public class Communicator
     private static APIInterface service;
     private static APIInterface loginService;
     //URL root url for making calls
-    private static final String SERVER_URL = "http://192.168.42.211";
+    private static final String SERVER_URL = "http://161.53.19.117:8080/";
 
     /**
      * Initialize the Retrofit service for making network calls.
@@ -185,8 +185,8 @@ public class Communicator
 
         for(Beacon beacon:beacons)
         {
-            beaconMap.put(beacon.getBluetoothName(), beacon);
-            nearbyRooms.add(new NearbyRoom(beacon.getDistance() ,beacon.getBluetoothName()));
+            beaconMap.put(beacon.getId2()+":"+beacon.getId3(), beacon);
+            nearbyRooms.add(new NearbyRoom(beacon.getDistance() ,beacon.getId2()+":"+beacon.getId3()));
         }
 
         Call<List<RoomOverview>> call = service.postNerby(new NearbyRequest(nearbyRooms));
@@ -488,7 +488,7 @@ public class Communicator
 
         for(Beacon beacon:beacons)
         {
-            beaconMap.put(beacon.getBluetoothName(), beacon);
+            beaconMap.put(beacon.getId2()+":"+beacon.getId3(), beacon);
         }
         Call<List<RoomOverview>> call = service.getFavorite();
 
